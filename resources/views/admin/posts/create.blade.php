@@ -5,7 +5,7 @@
             Create a New Post
         </div>
         <div class="panel-body">
-            <form action="/post/store" method="post">
+            <form action="{{route('post.store')}}" method="post">
                 {{csrf_field()}}
                 <div class="from-group">
                     <label for="title">Title</label>
