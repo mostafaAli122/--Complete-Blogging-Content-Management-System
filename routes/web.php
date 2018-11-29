@@ -29,6 +29,10 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
         'uses'=>'PostController@store',
         'as'=>'post.store'
     ]);
+    Route::post('/post/update/{id}',[
+        'uses'=>'PostController@update',
+        'as'=>'post.update'
+    ]);
     Route::get('/posts',[
         'uses'=>'PostController@index',
         'as'=>'posts'
@@ -40,6 +44,10 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::get('/posts/kill/{id}',[
         'uses'=>'PostController@kill',
         'as'=>'posts.kill'
+    ]);
+    Route::get('/post/edit/{id}',[
+        'uses'=>'PostController@edit',
+        'as'=>'post.kieditll'
     ]);
     Route::get('/posts/trashed',[
         'uses'=>'PostController@trashed',
