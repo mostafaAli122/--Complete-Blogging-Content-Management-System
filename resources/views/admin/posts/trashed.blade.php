@@ -7,14 +7,16 @@
                     <th>Image</th>
                     <th>Title</th>
                     <th>Edit</th>
-                    <th>Trash</th>
+                    <th>Restore</th>
+                    <th>Destroy</th>
                 </thead>
                 <tbody>
                   @foreach($posts as $post)
                     <td><img src="{{$post->featured}}" alt="{{$post->title}}"></td>
                     <td>{{$post->title}}</td>
                     <td>Edit</td>
-                    <td><a href="{{route('post.delete',['id'=>$post->id])}}" class="btn btn-xs btn-danger">Trash</a></td>
+                    <td><a href="{{route('posts.restore',['id'=>$post->id])}}" class="btn btn-xs btn-success">Restore</a></td>
+                    <td><a href="{{route('posts.kill',['id'=>$post->id])}}" class="btn btn-xs btn-danger">Delete</a></td>
                   @endforeach
                 </tbody>
             </table>

@@ -110,4 +110,20 @@ class PostController extends Controller
         Session::flash('success','The Post Was Just Trashed.');
         return redirect()->back();
     }
+    public function trashed(){
+        $posts=Post::onlyTrashed()->get();
+        return view('admin.posts.trashed')->with('posts',$posts);
+    }
+    public function kill(){
+        $post=Post::withTrashed()->where('id',$id)->first();
+        $post->forceDelete();
+        Session::flash('success','Post Deleted Permenantly.');
+        return redirect()->back();
+    }
+    public function restore(){
+        $post=Post::withTrashed()->where('id',$id)->first();
+        $post->restore();
+        Session::flash('success','Post Restored Successfully.');
+        return redirect()->route('posts');
+    }
 }
