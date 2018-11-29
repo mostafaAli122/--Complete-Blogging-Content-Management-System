@@ -14,7 +14,7 @@
                     <td><img src="{{$post->featured}}" alt="{{$post->title}}"></td>
                     <td>{{$post->title}}</td>
                     <td>Edit</td>
-                    <td>Delete</td>
+                    <td><a href="{{route('post.delete')}}" class="btn btn-danger">Trash</a></td>
                   @endforeach
                 </tbody>
             </table>
