@@ -10,10 +10,12 @@
                     <th>Delete</th>
                 </thead>
                 <tbody>
-                  <td>Image</td>
-                  <td>{{$post->title}}</td>
-                  <td>Edit</td>
-                  <td>Delete</td>
+                  @foreach($posts as $post)
+                    <td><img src="{{$post->featured}}" alt="{{$post->title}}"></td>
+                    <td>{{$post->title}}</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                  @endforeach
                 </tbody>
             </table>
         </div> 
