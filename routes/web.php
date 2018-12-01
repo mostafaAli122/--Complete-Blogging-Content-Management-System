@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*
+|to return rows from two table in relationships (1-M) | (M-M)
+|
+|Route::get('/test', function () {
+|    return App\Tag::find(4)->posts ;
+|});
+|
+*/
 Auth::routes();
 
 
