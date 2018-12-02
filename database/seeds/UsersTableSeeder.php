@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
         ]);
         App\Profile::create([
         'user_id'=>$user->id,
-        'image'=>'link to image',
+        'image'=>'uploads/image/1.png',
         'about'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam iure neque soluta ab. Dolore, iure neque! Repudiandae fugit, provident, libero laudantium quam nihil recusandae eum ex officia consequuntur suscipit velit!',
         'facebook'=>'facebook.com',
         'youtube'=>'youtube.com'
