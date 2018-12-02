@@ -115,6 +115,12 @@
                         <li class="list-group-item">
                             <a href="{{route('post.create')}}" >Create New Post</a>
                         </li>
+                        @if(Auth::user()->admin)
+                            <li class="list-group-item">
+                                <a href="{{route('settings')}}" >Settings</a>
+                            </li>
+                        @endif
+                        
                     </ul>
                 </div>
                 @endif
