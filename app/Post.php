@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\softDeletes;
 class Post extends Model
 {
     use softDeletes;
-    protected $fillable=['title','content','category_id','featured','slug'];
+    protected $fillable=['title','content','category_id','featured','slug','user_id'];
     
     public function getFeaturedAttribute($featured)
     {
@@ -23,6 +23,6 @@ class Post extends Model
         return $this->belongsToMany('App\Tag');
     }
     public function user(){
-        return $this->belongsTo('App\Profile');
+        return $this->belongsTo('App\User');
     }
 }
