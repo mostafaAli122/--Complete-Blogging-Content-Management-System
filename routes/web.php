@@ -11,9 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[
+    'uses'=>'FrontEndController@index',
+    'as'=>'index' 
+]);
+Route::get('/post/{slug}',[
+    'uses'=>'FrontEndController@singlePost',
+    'as'=>'post.single'
+]);
 
 /*
 |to return rows from two table in relationships (1-M) | (M-M)
