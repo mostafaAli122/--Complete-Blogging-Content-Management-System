@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('app/css/normalize.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('app/css/grid.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('app/css/styles.css')}}">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 
 
     <!--Plugins styles-->
@@ -53,9 +54,10 @@
                 <div class="subscribe scrollme">
                     <div class="col-lg-6 col-lg-offset-5 col-md-6 col-md-offset-5 col-sm-12 col-xs-12">
                         <h4 class="subscribe-title">Email Newsletters!</h4>
-                        <form class="subscribe-form" method="post" action="">
+                        <form class="subscribe-form" method="post" action="/subscribe">
+                        {{csrf_field}}
                             <input class="email input-standard-grey input-white" name="email" required="required" placeholder="Your Email Address" type="email">
-                            <button class="subscr-btn">subscribe
+                            <button class="subscr-btn" type="submit">subscribe
                                 <span class="semicircle--right"></span>
                             </button>
                         </form>
@@ -153,5 +155,13 @@
 <script src="{{asset('app/js/animation.velocity.min.js')}}"></script>
 <!-- ...end JS Script -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c0583a7d109831e"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script>
+    @if(Session::has('subscribed'))
+        toastr.success("{{Session::get('subscribed')}}");
+    @endif
+</script>
+
 </body>
 </html>

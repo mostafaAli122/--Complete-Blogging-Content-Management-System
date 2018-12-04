@@ -10,11 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::post('/subscribe',function(){
+    $email=request('email'); 
+    Newsletter::subscribe($email);
+    Session::flash('subscribed','Successfully Subscribed');
+    return redirect()->back();
+});
 Route::get('/',[
     'uses'=>'FrontEndController@index',
     'as'=>'index' 
 ]);
+
 Route::get('/',function(){
     $posts=\App\Post::where('title','like','%'.request('query').'%')->get();
     return view('results')->with('posts',$posts)
